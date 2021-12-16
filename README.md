@@ -18,11 +18,11 @@ python main.py
 
 |Function | Directory |
 | ------ | ------ |
-| load_data | [controllers/init.py][PlDb] |
-| check_existence_in_directory | [controllers/init.py][PlDb] |
-| ip_current_ordering | [controllers/init.py][PlDb] |
-| create_new_data_ip | [controllers/init.py][PlDb] |
-| create_new_scan | [controllers/init.py][PlDb] |
+| load_data | [controllers/init.py] |
+| check_existence_in_directory | [controllers/init.py] |
+| ip_current_ordering | [controllers/init.py] |
+| create_new_data_ip | [controllers/init.py] |
+| create_new_scan | [controllers/init.py] |
 
 ## License
 
