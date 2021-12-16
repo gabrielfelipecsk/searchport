@@ -1,5 +1,5 @@
 import socket
-
+import threading
 
 def port_scan(host, port):
     try:
@@ -8,8 +8,11 @@ def port_scan(host, port):
         print("Port %d is open" % port)
         s.close()
     except:
-
         print("Port %d is closed" % port)
 
-port_scan('20.124.80.187', 80)
 
+for port in range(1, 10000):
+    print(f'Init Port -> {port}')
+    t = threading.Thread(target=port_scan, args=('20.124.80.187', port))
+    t.start()
+    
