@@ -14,7 +14,6 @@ def check_existence_in_directory(value: str) -> bool:
     directories: list = os.listdir(os.path.abspath('database'))
     return True if value in directories else False
 
-
 def ip_current_ordering(ip: str) -> int:
     directories: list = os.listdir(os.path.abspath(f'database\\{ip}')) 
     scan_range: list = []
@@ -57,3 +56,6 @@ def create_new_scan(data_scan: list, ip: str) -> None:
         
         db_file.write(processed)
 
+def list_hosts() -> list:
+    directories: list = os.listdir(os.path.abspath('database'))
+    return directories

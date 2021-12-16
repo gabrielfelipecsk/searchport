@@ -1,15 +1,14 @@
 import time
 import os
 import sys
+import controllers as db_manager
+from controllers.db_manager import list_hosts
 
-def clear():
+def head(txt):
     if sys.platform.startswith('win'):
         os.system('cls')
     elif sys.platform.startswith('linux'):
         os.system('clear')
-
-def head(txt):
-    clear()
     print("""\033[31m
 @@####################################@@@@@@@@@@@@
 @@###@@@@@@@@@@@###########@@@@@@@@###@@@@@@@@@@@@
@@ -33,7 +32,6 @@ def head(txt):
     """.replace("@", " "))
 
 def menu(list):
-    clear()
     head('SEARCH PORT')
     c = 1
     for item in list:
@@ -49,6 +47,7 @@ while True:
         time.sleep(2)
     elif opc == 2:
         print('\033[33mList Hosts\033[m')
+        list_hosts()
         time.sleep(2)
     elif opc == 3:
         print('\033[34mAdd Hosts\033[m')
