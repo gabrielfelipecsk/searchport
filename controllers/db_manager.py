@@ -1,6 +1,11 @@
-import os, sys
+import os
 
 def load_data(path: str) -> dict:
+    """
+    # load_data (function)
+
+    This function will get a txt file and broken the line and columns in a list.
+    """
     with open(path, 'r') as dbfile:
         processed_data : list = []
 
@@ -11,9 +16,12 @@ def load_data(path: str) -> dict:
     return processed_data
 
 def check_existence_in_directory(value: str) -> bool:
+    """
+    # check_existence_in_directory (function)
+    """
+
     directories: list = os.listdir(os.path.abspath('database'))
     return True if value in directories else False
-
 
 def ip_current_ordering(ip: str) -> int:
     directories: list = os.listdir(os.path.abspath(f'database\\{ip}')) 
@@ -36,7 +44,6 @@ def ip_current_ordering(ip: str) -> int:
     else:
         return 1
 
-
 def create_new_data_ip(ip: str) -> None:
     path: str = os.path.abspath('.\database') + '\\' + ip
     existence = check_existence_in_directory(ip)
@@ -56,4 +63,3 @@ def create_new_scan(data_scan: list, ip: str) -> None:
             processed += f"{data['port']}, {data['status']}\n"
         
         db_file.write(processed)
-
