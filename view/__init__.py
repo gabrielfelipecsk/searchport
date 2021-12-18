@@ -33,28 +33,9 @@ def head(txt):
 
 def menu(list):
     head('SEARCH PORT')
-    c = 1
-    for item in list:
-        print(f'{c} - {item}')
-        c += 1
+
+    for index, item in enumerate(list):
+        print(f'{index} - {item}')
+  
     opc = int(input('\n \033[35mChange Option:\033[m '))
     return opc
-
-while True:
-    opc = menu(['\033[32mStart Search\033[m','\033[33mList Hosts\033[m', '\033[34mAdd Hosts\033[m', '\033[31mExit\033[m'])
-    if opc == 1:
-        print('\033[32mStarting...\033[m')
-        time.sleep(2)
-    elif opc == 2:
-        print('\033[33mList Hosts\033[m')
-        list_hosts()
-        time.sleep(2)
-    elif opc == 3:
-        print('\033[34mAdd Hosts\033[m')
-        time.sleep(2)
-    elif opc == 4:
-        print('\n \033[31mBye Bye... \033[m \n')
-        break
-    else:
-        print('\033[31mInvalid Option \033[m')
-        time.sleep(2)
