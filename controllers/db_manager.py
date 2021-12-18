@@ -23,7 +23,7 @@ def check_existence_in_directory(value: str) -> bool:
     directories: list = os.listdir(os.path.abspath('database'))
     return True if value in directories else False
 
-def ip_current_ordering(ip: str) -> int:
+def scan_current_ordering(ip: str) -> int:
     directories: list = os.listdir(os.path.abspath(f'database\\{ip}')) 
     scan_range: list = []
 
@@ -44,7 +44,7 @@ def ip_current_ordering(ip: str) -> int:
     else:
         return 1
 
-def create_new_data_ip(ip: str) -> None:
+def create_new_data_host(ip: str) -> None:
     path: str = os.path.abspath('.\database') + '\\' + ip
     existence = check_existence_in_directory(ip)
 
@@ -55,7 +55,7 @@ def create_new_data_ip(ip: str) -> None:
 
 def create_new_scan(data_scan: list, ip: str) -> None:
     # checking scans
-    path: str = os.path.abspath('.\database') + '\\' + ip + '\\' + f'scan_{ip_current_ordering(ip)}.txt'
+    path: str = os.path.abspath('.\database') + '\\' + ip + '\\' + f'scan_{scan_current_ordering(ip)}.txt'
 
     with open(path, 'w') as db_file:
         processed: str = ''
@@ -63,3 +63,7 @@ def create_new_scan(data_scan: list, ip: str) -> None:
             processed += f"{data['port']}, {data['status']}\n"
         
         db_file.write(processed)
+
+def list_hosts() -> list:
+    directories: list = os.listdir(os.path.abspath('database'))
+    return directories

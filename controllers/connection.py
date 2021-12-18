@@ -21,10 +21,3 @@ def scan_opened_in_range(host: str, init_range: int, final_range: int, scan_list
 
     print('Finish Scans!')
 
-
-scan_list: list = []
-
-scan_opened_in_range('20.124.80.187', 0, 100, scan_list)    
-    
-for sl in scan_list:
-    print(sl)
