@@ -7,7 +7,6 @@ class Colorize:
         self.center: int = center
 
         self.text: str = text.center(center)
-        
 
         self.representation: str = self._structure(self.foreground_color, self.background_color) + self.text + self.clear()
     
