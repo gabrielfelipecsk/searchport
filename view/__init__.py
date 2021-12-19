@@ -1,8 +1,5 @@
-import time
-import os
-import sys
-import controllers as db_manager
-from controllers.db_manager import list_hosts
+import time, os, sys
+
 
 def head(txt):
     if sys.platform.startswith('win'):
