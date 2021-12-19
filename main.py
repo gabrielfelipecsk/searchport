@@ -4,7 +4,7 @@ from controllers.db_manager import *
 
 # Main Loop
 while True:
-    opc = menu(['\033[32mStart Search\033[m','\033[33mList Hosts\033[m', '\033[34mAdd Hosts\033[m', '\033[31mExit\033[m'])
+    opc = menu(['\033[32mStart Search\033[m','\033[34mAdd Hosts\033[m', '\033[33mList Hosts\033[m', '\033[31mExit\033[m'])
     if opc == 1:
         print('\033[32mStarting...\033[m')
         time.sleep(2)
