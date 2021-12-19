@@ -1,3 +1,6 @@
 database
 virtualenv/
 .gitignore
+__pycache__/
+controllers/__pycache__/
+view/__pycache__/
