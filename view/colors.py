@@ -36,24 +36,24 @@ class Colorize:
     def background(self, color_match: str) -> str:
         match color_match:
             case 'black':
-                return '30'
+                return '40'
             case 'red':
-                return '31'
+                return '41'
             case 'green':
-                return '32'
+                return '42'
             case 'yellow':
-                return '33'
+                return '43'
             case 'blue':
-                return '34'
+                return '44'
             case 'pink':
-                return '35'
+                return '45'
             case 'cyan':
-                return '36'
+                return '46'
             case 'white':
-                return '37'
+                return '47'
     
     def _structure(self, foreground_color: str = 'default', background_color: str = 'default') -> str:
-        return '\33[' + (self.foreground(foreground_color) if foreground_color != 'default' else '') + (self.background(background_color) if background_color != 'default' else '') + 'm' 
+        return '\33[' + (self.foreground(foreground_color) if foreground_color != 'default' else '') + (';' + self.background(background_color) if background_color != 'default' else '') + 'm' 
 
     def __repr__(self) -> str:
         return self.representation
