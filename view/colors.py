@@ -3,11 +3,12 @@ class Colorize:
     def __init__(self, text: str, foreground_color: str = 'default', background_color: str = 'default', center: int = 0) -> None:
         self.foreground_color: str = foreground_color
         self.background_color: str = background_color
-
         self.center: int = center
-
         self.text: str = text.center(center)
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
         self.representation: str = self._structure(self.foreground_color, self.background_color) + self.text + self.clear()
     
     def clear(self) -> str:
@@ -65,5 +66,3 @@ class Colorize:
 
     def __add__(self, other: str) -> str:
         return self.representation + other
-
-    
