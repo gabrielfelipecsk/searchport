@@ -44,12 +44,13 @@ def scan_current_ordering(ip: str) -> int:
     else:
         return 1
 
-def create_new_data_host(host: str) -> None:
+def create_new_data_host(host: str) -> None | str:
     path: str = os.path.abspath('.\database') + '\\' + host
     existence = check_existence_in_directory(host)
 
     if existence == False:
         os.mkdir(path)
+        return None
     else:
         return f'Host: {host} already exist'
 
