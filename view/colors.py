@@ -5,10 +5,6 @@ class Colorize:
         self.background_color: str = background_color
         self.center: int = center
         self.text: str = text.center(center)
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
         self.representation: str = self._structure(self.foreground_color, self.background_color) + self.text + self.clear()
     
     def clear(self) -> str:

@@ -33,21 +33,29 @@ def clear() -> None:
         case 'darwin':
             os.system('clear')
 
-done = False
-def animate():
-    for c in itertools.cycle(['|', '/', '-', '\\']):
-        if done:
-            break
-        sys.stdout.write(Colorize('\rLoading ','yellow','black',0).representation + c)
-        sys.stdout.flush()
-        time.sleep(0.1)
-    sys.stdout.write(Colorize('\r Done!     ', 'green', 'black', 0).representation)
+class Loading:
+    def __init__(self, limit: int = 10) -> None:
+        counter = 0
+        for bar in self.loading():
 
-# t = threading.Thread(target=animate)
-# t.start()
-# #processo
-# time.sleep(5)
-# done = True
+            if counter == limit:
+                break
+            
+            counter += 1
+        clear()
+        sys.stdout.write(Colorize('Done!', 'green', 'black', 0).representation)
+        print()
+        
+        
+
+    def loading(self) -> None:
+        for c in itertools.cycle(['|', '/', '-', '\\']):
+            sys.stdout.write(Colorize('\rLoading ','yellow','black',0).representation + c)
+            yield sys.stdout.flush()
+            time.sleep(0.1)
+
+        
+
 
 def print_banner(banner: str, color: str = 'white', background: str = 'black') -> None:
     clear()

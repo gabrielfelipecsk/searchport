@@ -50,9 +50,9 @@ def create_new_data_host(host: str) -> None | str:
 
     if existence == False:
         os.mkdir(path)
-        return None
+        return True
     else:
-        return f'Host: {host} already exist'
+        return False
 
 def create_new_scan(data_scan: list, ip: str) -> None:
     # checking scans

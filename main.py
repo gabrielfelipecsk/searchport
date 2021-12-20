@@ -1,13 +1,30 @@
+import threading
 import time
 from view.banners import banner, option_banner
 from view.inputs import input_banner, inputc
 from controllers.db_manager import *
 from controllers.connection import *
-from view.utilities import clear
+from view.utilities import clear, Loading
+
+
+
+done_loading: bool = False
 
 
 def add_new_host_ip() -> None:
-    response = create_new_data_host()
+    clear()
+    banner('Tape the new host ip')
+    choiced_host_ip: str = inputc('Host: ')
+    response = create_new_data_host(choiced_host_ip)
+
+    clear()
+    Loading(20)
+    
+    if response == False:
+        banner(f'Host: {choiced_host_ip} already exist', title_foreground_color='red', line_foreground_color='red')
+
+    input('ENTER TO CONTINUE')
+
 
 def remove_host_ip() -> None:
     pass
@@ -42,7 +59,7 @@ while True:
     ])
 
     user_choice: str = inputc('>>> ', 'blue')
-    
+    clear()
     if user_choice == '0':
         add_new_host_ip()
     elif user_choice == '1':
@@ -52,7 +69,8 @@ while True:
 
         input('ENTER TO CONTINUE')
     elif user_choice == '3':
-
+        t = threading.Thread(target=Loading, args=[20]).start()
+        
         input('ENTER TO CONTINUE')
     elif user_choice == '4':
 
@@ -60,3 +78,4 @@ while True:
     elif user_choice == '5':
         exit_app()
         
+    time.sleep(.5)
