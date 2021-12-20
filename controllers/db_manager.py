@@ -1,5 +1,6 @@
 import os
 
+
 def load_data(path: str) -> dict:
     """
     # load_data (function)
@@ -32,7 +33,6 @@ def scan_current_ordering(ip: str) -> int:
             scan_range.append(int(value.replace('scan_', '').replace('.txt', '')))
 
         scan_range.sort()
-
         
         for value in enumerate(scan_range):
             if value[1] != scan_range[value[0] - 1] + 1 and value[1] != 1:
@@ -44,14 +44,14 @@ def scan_current_ordering(ip: str) -> int:
     else:
         return 1
 
-def create_new_data_host(ip: str) -> None:
-    path: str = os.path.abspath('.\database') + '\\' + ip
-    existence = check_existence_in_directory(ip)
+def create_new_data_host(host: str) -> None:
+    path: str = os.path.abspath('.\database') + '\\' + host
+    existence = check_existence_in_directory(host)
 
     if existence == False:
         os.mkdir(path)
     else:
-        return f'IP: {ip} already exist'
+        return f'Host: {host} already exist'
 
 def create_new_scan(data_scan: list, ip: str) -> None:
     # checking scans
