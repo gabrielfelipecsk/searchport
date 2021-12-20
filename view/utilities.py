@@ -59,4 +59,5 @@ class Loading:
 
 def print_banner(banner: str, color: str = 'white', background: str = 'black') -> None:
     clear()
-    print(Colorize(banner, color, background))
+    return Colorize(banner, color, background)
+
