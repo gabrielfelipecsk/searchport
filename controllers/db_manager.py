@@ -44,15 +44,31 @@ def scan_current_ordering(ip: str) -> int:
     else:
         return 1
 
-def create_new_data_host(host: str) -> None | str:
+def create_host(host: str) -> None | str:
     path: str = os.path.abspath('.\database') + '\\' + host
     existence = check_existence_in_directory(host)
 
     if existence == False:
-        os.mkdir(path)
-        return True
+        try:
+            os.mkdir(path)
+            return True
+        except:
+            return False
     else:
         return False
+
+def remove_host(host: str) -> None:
+    path: str = os.path.abspath('.\database') + '\\' + host
+    existence = check_existence_in_directory(host)
+
+    if existence == True:
+        try:
+            os.rmdir(path)
+            return True
+        except:
+            return False
+    
+    return False
 
 def create_new_scan(data_scan: list, ip: str) -> None:
     # checking scans

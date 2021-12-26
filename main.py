@@ -7,15 +7,11 @@ from controllers.connection import *
 from view.utilities import clear, Loading
 
 
-
-done_loading: bool = False
-
-
 def add_new_host_ip() -> None:
     clear()
     banner('Tape the new host ip')
     choiced_host_ip: str = inputc('Host: ')
-    response = create_new_data_host(choiced_host_ip)
+    response = create_host(choiced_host_ip)
 
     clear()
     Loading(20)
@@ -27,7 +23,20 @@ def add_new_host_ip() -> None:
 
 
 def remove_host_ip() -> None:
-    pass
+    clear()
+    banner('Choice the host that you want to remove.')
+    choiced_host_ip: str = inputc('Host: ')
+    clear()
+    confirmation: str = inputc('Are you sure about that? (y/n) \n>>>', 'red')
+
+    clear()
+    Loading(20)
+
+    if confirmation in ('y', 'Y', 'yes'):
+        return remove_host(choiced_host_ip)
+    
+    input('ENTER TO CONTINUE')
+    return False
 
 def host_ip_list() -> None:
     pass
@@ -63,8 +72,12 @@ while True:
     if user_choice == '0':
         add_new_host_ip()
     elif user_choice == '1':
+        remove_response = remove_host_ip()
+        if remove_response == False:
+            clear()
+            banner('Error: The host not exist')
+            input('ENTER TO CONTINUE')
 
-        input('ENTER TO CONTINUE')
     elif user_choice == '2':
 
         input('ENTER TO CONTINUE')
