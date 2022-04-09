@@ -14,13 +14,6 @@ Require Python 3.10.0+.
 python main.py
 ```
 
-Create a folder
-```
-database
-```
-
-
-
 ## Struture
 
 |Function | Directory |

@@ -27,11 +27,12 @@ def check_existence_in_directory(value: str) -> bool:
 def scan_current_ordering(ip: str) -> int:
     directories: list = os.listdir(os.path.abspath(f'database\\{ip}')) 
     scan_range: list = []
+    
 
     if len(directories) != 0:
         for value in directories:
             scan_range.append(int(value.replace('scan_', '').replace('.txt', '')))
-
+        
         scan_range.sort()
         
         for value in enumerate(scan_range):
